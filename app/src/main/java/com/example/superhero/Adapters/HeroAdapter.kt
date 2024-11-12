@@ -9,7 +9,7 @@ import com.example.superhero.databinding.ViewHeroItemBinding
 import com.squareup.picasso.Picasso
 
 
-class HeroAdapter (private var heroList:List<DataHero>):
+class HeroAdapter (private var heroList:List<DataHero>,private val onItemClickListener: (Int) -> Unit):
     RecyclerView.Adapter<ViewHolder>()
     {
         //SearchViewConfig
@@ -41,12 +41,9 @@ class HeroAdapter (private var heroList:List<DataHero>):
 
             holder.bind(heroList[position])
 
-
-            /*
             holder.itemView.setOnClickListener {
                 onItemClickListener(position)
             }
-            */
 
         }
 

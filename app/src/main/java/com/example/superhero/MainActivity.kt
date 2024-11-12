@@ -1,6 +1,8 @@
 package com.example.superhero
 
+import android.content.Intent
 import android.os.Bundle
+import android.provider.ContactsContract.Data
 import android.util.Log
 import android.view.Menu
 import androidx.activity.enableEdgeToEdge
@@ -32,13 +34,21 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        adapter = HeroAdapter(superheroList)
+        adapter = HeroAdapter(superheroList){position->navigateToDetail(superheroList[position])}
+
 
         binding.recyclerHero.adapter = adapter
         binding.recyclerHero.layoutManager = GridLayoutManager(this, 2)
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
 
     }
@@ -92,5 +102,15 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    fun navigateToDetail(heroSelected: DataHero) {
+
+        /*
+        val intent: Intent = Intent(this, horoscopeSelectedActivity::class.java)
+        intent.putExtra(HoroscopoAdapter.Horoscopo_KEY,simboloZodiaco.id)
+        startActivity(intent)
+
+         */
     }
 }
