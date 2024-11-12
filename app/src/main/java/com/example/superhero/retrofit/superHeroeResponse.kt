@@ -5,9 +5,11 @@ import retrofit2.http.Url
 
 data class SuperHeroeResponse (
 
-    @SerializedName("results") val listHero: List<DataHero>,
+    @SerializedName("response") val success: String,
     @SerializedName("results-for")val filteredName: String,
-    @SerializedName("response") val success: Boolean
+    @SerializedName("results") val listHero: List<DataHero>,
+
+
 )
 data class DataHero(
     @SerializedName("id") val numID:Int,
@@ -21,12 +23,12 @@ data class DataHero(
 
 )
 data class PowerStats(
-    @SerializedName("intelligence") val intelligence:Int,
-    @SerializedName("strength") val strength:Int,
-    @SerializedName("speed") val speed:Int,
-    @SerializedName("durability") val durability:Int,
-    @SerializedName("power") val power:Int,
-    @SerializedName("combat") val combat:Int
+    @SerializedName("intelligence") val intelligence:String,
+    @SerializedName("strength") val strength:String,
+    @SerializedName("speed") val speed:String,
+    @SerializedName("durability") val durability:String,
+    @SerializedName("power") val power:String,
+    @SerializedName("combat") val combat:String
 )
 data class Biography(
     @SerializedName("full-name") val fullName:String,
@@ -41,8 +43,8 @@ data class Biography(
 data class Appearance (
     @SerializedName("gender") val gender:String,
     @SerializedName("race") val race:String,
-    @SerializedName("height") val height:List<Float>,
-    @SerializedName("weight") val weight:List<Float>,
+    @SerializedName("height") val height:List<String>,
+    @SerializedName("weight") val weight:List<String>,
     @SerializedName("eyes-color") val eyesColor:String,
     @SerializedName("hair-color") val hairColor:String
 )

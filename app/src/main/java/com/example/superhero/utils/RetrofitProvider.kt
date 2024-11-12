@@ -8,10 +8,12 @@ class RetrofitProvider {
     {
         fun makeRetrofitService():superHeroService
         {
-            return Retrofit.Builder()
+            val retrofit= Retrofit.Builder()
                 .baseUrl("https://superheroapi.com/api/d185787618b6c92dbb52a73ac316744e/")
                 .addConverterFactory(GsonConverterFactory.create())
-                .build().create(superHeroService::class.java)
+                .build()
+
+            return retrofit.create(superHeroService::class.java)
         }
     }
 }
