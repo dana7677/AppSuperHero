@@ -39,7 +39,7 @@ class HeroAdapter (private var heroList:List<DataHero>,private val onItemClickLi
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-            holder.bind(heroList[position])
+            holder.bind(heroList[position],position)
 
             holder.itemView.setOnClickListener {
                 onItemClickListener(position)
@@ -51,10 +51,11 @@ class HeroAdapter (private var heroList:List<DataHero>,private val onItemClickLi
 class ViewHolder(private val binding: ViewHeroItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(heroData: DataHero) {
+    fun bind(heroData: DataHero,pos:Int) {
 
         //val context = itemView.context
         binding.heroeName.setText(heroData.nameHero)
         Picasso.get().load(heroData.urlImage.url).into(binding.imgHero)
+
     }
 }

@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        searchSuperHeroes("a")
 
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -90,7 +91,8 @@ class MainActivity : AppCompatActivity() {
                         //TODO MOSTRAR MENSAJE DE QUE HAY QUE HACER ALGO
                     }else
                     {
-                        adapter.setFilteredList(result.listHero)
+                        superheroList = result.listHero
+                        adapter.setFilteredList(superheroList)
                     }
                 }
 
@@ -106,11 +108,13 @@ class MainActivity : AppCompatActivity() {
 
     fun navigateToDetail(heroSelected: DataHero) {
 
-        /*
-        val intent: Intent = Intent(this, horoscopeSelectedActivity::class.java)
-        intent.putExtra(HoroscopoAdapter.Horoscopo_KEY,simboloZodiaco.id)
+
+        val intent: Intent = Intent(this, selected_hero_activity::class.java)
+        intent.putExtra("extra_ID",heroSelected.numID)
+        intent.putExtra("extra_Name",heroSelected.nameHero)
+        intent.putExtra("extra_Url",heroSelected.urlImage.url)
         startActivity(intent)
 
-         */
+
     }
 }

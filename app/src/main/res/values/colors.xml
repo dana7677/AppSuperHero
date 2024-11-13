@@ -2,4 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="back_text">#BFFF9100</color>
+    <color name="MenuTheme">#7700FF</color>
 </resources>

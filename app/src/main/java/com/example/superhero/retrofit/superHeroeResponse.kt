@@ -1,8 +1,8 @@
 package com.example.superhero.retrofit
 
+import androidx.versionedparcelable.ParcelField
 import com.google.gson.annotations.SerializedName
 import retrofit2.http.Url
-
 data class SuperHeroeResponse (
 
     @SerializedName("response") val success: String,
@@ -11,7 +11,9 @@ data class SuperHeroeResponse (
 
 
 )
+
 data class DataHero(
+    @SerializedName("response") val success: String,
     @SerializedName("id") val numID:Int,
     @SerializedName("name")val nameHero: String,
     @SerializedName("powerstats") val powerStats: PowerStats,
