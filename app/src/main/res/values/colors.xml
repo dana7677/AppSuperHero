@@ -4,4 +4,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="back_text">#BFFF9100</color>
     <color name="MenuTheme">#7700FF</color>
+    <color name="buttonImg_Opacity">#007700FF</color>
+    <color name="biography_Color">#50C100</color>
+    <color name="Appearence_Color">#0099FF</color>
+    <color name="Conexion_Color">#7700FF</color>
+    <color name="work_Color">#C15A00</color>
+
 </resources>

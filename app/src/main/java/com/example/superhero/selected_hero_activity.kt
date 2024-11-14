@@ -1,9 +1,11 @@
 package com.example.superhero
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.provider.ContactsContract.Data
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -33,9 +35,9 @@ class selected_hero_activity : AppCompatActivity() {
 
         //setContentView(R.layout.activity_selected_hero)
 
-        val resultID = intent.extras?.getString("extra_ID")
+        val resultID = intent.extras?.getInt("extra_ID")
         if(resultID!=null) {
-            heroId=resultID
+            heroId=resultID.toString()
             searchSuperHeroes(heroId)
         }
         val resultName = intent.extras?.getString("extra_Name")
@@ -44,7 +46,6 @@ class selected_hero_activity : AppCompatActivity() {
         val resultUrl = intent.extras?.getString("extra_Url")
         if(resultUrl!=null) { heroImgName=resultUrl }
 
-        binding.heroeNameSelected.setText(heroName)
         Picasso.get().load(heroImgName).into(binding.ImgHeroSelected)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -70,7 +71,78 @@ class selected_hero_activity : AppCompatActivity() {
     }
     private fun setMoreDataHeroe()
     {
-       // binding.
+
+        //BIO
+        binding.fullNameTxt.setText(heroData.biography.fullName)
+        binding.alterEgoTxt.setText("Alter Ego: ${heroData.biography.alterEgo}")
+        binding.aliasTxt.setText("Alias : ${listString(heroData.biography.alias)}")
+        binding.birthdayPlaceTxt.setText("BirthDay Place: ${heroData.biography.placeBirth}")
+        binding.firstAppearTxt.setText("First Appearence:${heroData.biography.firstAppearance}")
+        binding.publisherTxt.setText("Publisher:${heroData.biography.publisher}")
+        binding.alignmentTxt.setText("Alignment:${heroData.biography.alignment}")
+        //Appearence
+        binding.GenderTxt.setText("Gender: ${heroData.appearance.gender}")
+        binding.raceTxt.setText("Race: ${heroData.appearance.race}")
+        binding.heightTxt.setText("Height: ${heroData.appearance.height[0]} Ft  ${heroData.appearance.height[1]} Cm")
+        binding.GenderTxt.setText("Weight: ${heroData.appearance.gender[0]} Lbs ${heroData.appearance.gender[0]} Kg")
+        binding.eyeColorTxt.setText("Eyes Color: ${heroData.appearance.eyesColor}")
+        binding.hairColorTxt.setText("Hair Color: ${heroData.appearance.hairColor}")
+        //Work
+        binding.OcuppationTxt.setText("Ocuppation: ${heroData.work.ocuppation}")
+        binding.baseOpperationTxt.setText("Base of Opperation: ${heroData.work.base}")
+        //Conections
+        binding.groupAffiliationsTxt.setText("Groups: ${heroData.connections.group}")
+        binding.relativesTxt.setText("Relatives: ${heroData.connections.relatives}")
+
+        binding.biographyButton.setOnClickListener {
+            binding.biographyLinear.visibility= View.VISIBLE
+            binding.appearenceLinear.visibility= View.GONE
+            binding.workLinear.visibility= View.GONE
+            binding.connectionsLinear.visibility= View.GONE
+
+        }
+
+        binding.appearenceButton.setOnClickListener {
+            binding.biographyLinear.visibility= View.GONE
+            binding.appearenceLinear.visibility= View.VISIBLE
+            binding.workLinear.visibility= View.GONE
+            binding.connectionsLinear.visibility= View.GONE
+
+        }
+
+        binding.workButton.setOnClickListener {
+            binding.biographyLinear.visibility= View.GONE
+            binding.appearenceLinear.visibility= View.GONE
+            binding.workLinear.visibility= View.VISIBLE
+            binding.connectionsLinear.visibility= View.GONE
+
+        }
+
+        binding.conexionButton.setOnClickListener {
+            binding.biographyLinear.visibility= View.GONE
+            binding.appearenceLinear.visibility= View.GONE
+            binding.workLinear.visibility= View.GONE
+            binding.connectionsLinear.visibility= View.VISIBLE
+
+        }
+
+        //Bar
+
+        val progressBar=10
+        binding.inteligenceBar.max=10
+        ObjectAnimator.ofInt(binding.inteligenceBar,"progress",heroData.powerStats.intelligence.toInt())
+            .setDuration(2000)
+            .start()
+
+
+    }
+    private fun getMyStringFromData(stringPass:String):String
+    {
+        return stringPass
+    }
+    private fun listString(StringList:List<String>):String
+    {
+      return StringList.joinToString (" - ","","",-1,"...")
     }
     private fun searchSuperHeroes(query:String)
     {

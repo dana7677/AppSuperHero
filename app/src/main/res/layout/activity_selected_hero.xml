@@ -29,6 +29,47 @@
             </ImageView>
 
         </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="190dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="16dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="Stats"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:textStyle="bold">
+
+                </TextView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/search_icon">
+
+                    </ImageView>
+                    <ProgressBar
+                        android:id="@+id/inteligence_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        style="@style/Widget.Material3.LinearProgressIndicator">
+
+                    </ProgressBar>
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 
@@ -39,54 +80,335 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/linearButtons">
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:backgroundTint="@color/black">
+            android:backgroundTint="@color/white">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <Button
+                <ImageButton
+                    android:id="@+id/biography_Button"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="Biography"
-                    android:textSize="12sp">
-
-                </Button>
-                <Button
+                    android:textSize="12sp"
+                    android:src="@drawable/biography_icon"
+                    android:background="@color/biography_Color">
+                </ImageButton>
+                <ImageButton
+                    android:id="@+id/appearence_Button"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Appearence"
-                    android:textSize="10sp">
-
-                </Button>
-                <Button
+                    android:textSize="12sp"
+                    android:src="@drawable/appearance_icon"
+                    android:background="@color/Appearence_Color">
+                </ImageButton>
+                <ImageButton
+                    android:id="@+id/work_Button"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Work"
-                    android:textSize="12sp">
-
-                </Button>
-                <Button
+                    android:textSize="12sp"
+                    android:src="@drawable/work_icon"
+                    android:background="@color/work_Color">
+                </ImageButton>
+                <ImageButton
+                    android:id="@+id/conexion_Button"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Conections"
-                    android:textSize="11sp">
+                    android:textSize="12sp"
+                    android:src="@drawable/connections_icons"
+                    android:background="@color/Conexion_Color">
+                </ImageButton>
 
-                </Button>
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="290dp"
+        android:layout_gravity="bottom">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/biography_linear"
+            android:background="@color/biography_Color"
+            android:visibility="visible">
+            <TextView
+                android:id="@+id/fullName_txt"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:text="Texto De Prueba"
+                android:layout_marginVertical="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/white"
+                android:autoSizeMaxTextSize="55dp"
+                android:autoSizeMinTextSize="35dp"
+                android:textStyle="bold">
+
+            </TextView>
+            <TextView
+                android:id="@+id/alterEgo_txt"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:text="TextoDePrueba"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:autoSizeMaxTextSize="15dp"
+                android:autoSizeMinTextSize="10dp"
+                android:textColor="@color/white">
+
+            </TextView>
+            <TextView
+                android:id="@+id/alias_txt"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="TextoDePrueba"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:autoSizeMaxTextSize="15dp"
+                android:autoSizeMinTextSize="10dp"
+                android:textColor="@color/white">
+
+            </TextView>
+            <TextView
+                android:id="@+id/birthdayPlace_txt"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:text="TextoDePrueba"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:autoSizeMaxTextSize="15dp"
+                android:autoSizeMinTextSize="10dp"
+                android:textColor="@color/white">
+
+            </TextView>
+            <TextView
+                android:id="@+id/firstAppear_txt"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:text="TextoDePrueba"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:autoSizeMaxTextSize="15dp"
+                android:autoSizeMinTextSize="10dp"
+                android:textColor="@color/white">
+
+            </TextView>
+            <TextView
+                android:id="@+id/publisher_txt"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="TextoDePrueba"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:autoSizeMaxTextSize="15dp"
+                android:autoSizeMinTextSize="10dp"
+                android:textColor="@color/white">
+
+            </TextView>
+            <TextView
+                android:id="@+id/alignment_txt"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="TextoDePrueba"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:autoSizeMaxTextSize="15dp"
+                android:autoSizeMinTextSize="10dp"
+                android:textColor="@color/white"
+                android:textStyle="bold">
+
+            </TextView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/appearence_linear"
+            android:background="@color/Appearence_Color"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/Gender_txt"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:text="TextoDePrueba"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:autoSizeMaxTextSize="15dp"
+                android:autoSizeMinTextSize="10dp"
+                android:textColor="@color/white">
+
+            </TextView>
+            <TextView
+                android:id="@+id/race_txt"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:text="TextoDePrueba"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:autoSizeMaxTextSize="15dp"
+                android:autoSizeMinTextSize="10dp"
+                android:textColor="@color/white">
+
+            </TextView>
+            <TextView
+                android:id="@+id/height_txt"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:text="TextoDePrueba"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:autoSizeMaxTextSize="15dp"
+                android:autoSizeMinTextSize="10dp"
+                android:textColor="@color/white">
+
+            </TextView>
+            <TextView
+                android:id="@+id/weight_txt"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:text="TextoDePrueba"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:autoSizeMaxTextSize="15dp"
+                android:autoSizeMinTextSize="10dp"
+                android:textColor="@color/white">
+
+            </TextView>
+            <TextView
+                android:id="@+id/eyeColor_txt"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:text="TextoDePrueba"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:autoSizeMaxTextSize="15dp"
+                android:autoSizeMinTextSize="10dp"
+                android:textColor="@color/white">
+
+            </TextView>
+            <TextView
+                android:id="@+id/hairColor_txt"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:text="TextoDePrueba"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:autoSizeMaxTextSize="15dp"
+                android:autoSizeMinTextSize="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/white">
+
+            </TextView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/work_linear"
+            android:background="@color/work_Color"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/Ocuppation_txt"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:text="TextoDePrueba"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:autoSizeMaxTextSize="35dp"
+                android:autoSizeMinTextSize="20dp"
+                android:textColor="@color/white">
+
+            </TextView>
+            <TextView
+                android:id="@+id/baseOpperation_txt"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:text="TextoDePrueba"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:autoSizeMaxTextSize="35dp"
+                android:autoSizeMinTextSize="20dp"
+                android:textColor="@color/white">
+
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/connections_linear"
+            android:background="@color/Conexion_Color"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/groupAffiliations_txt"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:text="TextoDePrueba"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:autoSizeMaxTextSize="35dp"
+                android:autoSizeMinTextSize="10dp"
+                android:textColor="@color/white">
+
+            </TextView>
+            <TextView
+                android:id="@+id/relatives_txt"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:text="TextoDePrueba"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:autoSizeMaxTextSize="35dp"
+                android:autoSizeMinTextSize="10dp"
+                android:textColor="@color/white">
+
+            </TextView>
+        </LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
 
 </androidx.cardview.widget.CardView>
 
